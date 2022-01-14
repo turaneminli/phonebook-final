@@ -31,6 +31,16 @@ describe("Main Controller Tests", () => {
       .expect(201);
   });
 
+  test("Add user fail (/POST)", async () => {
+    await request(app)
+      .post("/user/add")
+      .send({
+        name: "Turan",
+        phone: "+99451 5550000",
+      })
+      .expect(201);
+  });
+
   test("Edit user (/PUT)", async () => {
     const newUser = await User.create(userOne);
 
@@ -38,6 +48,15 @@ describe("Main Controller Tests", () => {
       .put("/user/" + newUser.id)
       .send({ name: "George", phone: "+994 99 123 4567" })
       .expect(200);
+  });
+
+  test("Could not find user (/PUT)", async () => {
+    const newUser = await User.create(userOne);
+
+    await request(app)
+      .put("/user/" + 5)
+      .send({ name: "George", phone: "+994 99 123 4567" })
+      .expect(404);
   });
 
   test("Delete user (/DELETE)", async () => {
@@ -48,6 +67,16 @@ describe("Main Controller Tests", () => {
       .expect(200)
       .then(async () => {
         expect(await User.findOne({ where: { id: newUser.id } })).toBeFalsy();
+      });
+  });
+
+  test("Could not find user - Delete user (/DELETE)", async () => {
+    const newUser = await User.create(userOne);
+
+    await request(app)
+      .delete("/user/5")
+      .then((result) => {
+        expect(result.body.error).toEqual("Could not find the user.");
       });
   });
 

@@ -13,14 +13,8 @@ app.use(bodyParser.json());
 // Routers
 app.use(mainRouter);
 
-sequelize
-  .sync()
-  .then((result) => {
-    // console.log(result);
-    app.listen(8080);
-  })
-  .catch((err) => {
-    console.log(err);
-  });
+sequelize.sync().then((result) => {
+  app.listen(8081);
+});
 
 module.exports = app;

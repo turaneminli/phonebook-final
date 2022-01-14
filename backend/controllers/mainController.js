@@ -53,11 +53,11 @@ exports.editUser = (req, res, next) => {
     })
     .catch((err) => {
       console.log(err);
-      return res.status(404).json({
-        user_id: result.id,
-        operation_type: "edit",
-        operation_status: "fail",
-      });
+      // return res.status(404).json({
+      //   user_id: result.id,
+      //   operation_type: "edit",
+      //   operation_status: "fail",
+      // });
     });
 };
 
@@ -102,11 +102,11 @@ exports.deleteUser = (req, res, next) => {
     })
     .catch((err) => {
       console.log(err);
-      res.status(404).json({
-        user_id: userId,
-        operation_type: "delete",
-        operation_status: "fail",
-      });
+      // res.status(404).json({
+      //   user_id: userId,
+      //   operation_type: "delete",
+      //   operation_status: "fail",
+      // });
     });
 };
 

@@ -24,3 +24,29 @@ npm test
     √ Edit user (/PUT) (31ms)
     √ Get the list of users (/GET) (12ms)
 ```
+
+## SonarQube analysis
+
+- Pull Sonarqube docker image first:
+
+```cmd
+docker-compose -f docker-compose.sonarqube.yml up
+```
+
+- Run all the tests
+
+```cmd
+npm run test
+```
+
+- Run and push the results to Sonarqube server
+
+```cmd
+npm run sonar
+```
+
+## Result
+
+![SonarQube server](phonebook-sonarqube-results.jpg)
+
+Note: All the commands should be done on root folder "backend"
