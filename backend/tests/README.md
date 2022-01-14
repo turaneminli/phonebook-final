@@ -1,5 +1,13 @@
 # Implemented Unit Tests with Jest and Supertest
 
+## Localhost MySQL server should be configured in `.env`
+
+```env
+SQL_DATABASE_NAME = ""
+SQL_USERNAME = ""
+SQL_PASSWORD = ""
+```
+
 ## Running tests
 
 ```cmd
