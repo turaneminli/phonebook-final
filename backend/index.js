@@ -16,9 +16,11 @@ app.use(mainRouter);
 sequelize
   .sync()
   .then((result) => {
-    console.log(result);
-    app.listen(80);
+    // console.log(result);
+    app.listen(8080);
   })
   .catch((err) => {
     console.log(err);
   });
+
+module.exports = app;
