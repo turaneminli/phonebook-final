@@ -13,6 +13,10 @@ a {
   overflow-x: auto;
 }
 
+.post-submit {
+  margin-top: 10px;
+}
+
 table {
   border-collapse: collapse;
   border: 1px solid black;
