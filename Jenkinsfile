@@ -11,12 +11,12 @@ pipeline {
         }
         stage('Backend build docker') {
             steps {
-                sh 'docker build -t turaneminli/phonebook-backend backend:latest'
+                sh 'docker build -t turaneminli/phonebook-backend backend'
             }
         }
         stage('Backend push to dockerhub') {
             steps {
-                sh 'docker push turaneminli/phonebook-backend'
+                sh 'docker push turaneminli/phonebook-backend:latest'
             }
         }
         stage('Frontend build docker') {
