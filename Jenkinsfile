@@ -1,9 +1,7 @@
 pipeline {
+    agent any
     environment {
         DOCKERHUB_CREDENTIALS=credentials('dockerhub')
-    }
-    agent {
-        docker { image 'node:16.13.1-alpine' }
     }
     stages {
         stage('Git clone') {
