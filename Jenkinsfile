@@ -11,7 +11,7 @@ pipeline {
         }
         stage('Backend build docker') {
             steps {
-                sh 'docker build -t turaneminli/phonebook-backend backend'
+                sh 'docker build -t turaneminli/phonebook-backend backend:latest'
             }
         }
         stage('Backend push to dockerhub') {
@@ -26,7 +26,7 @@ pipeline {
         }
         stage('Frontend push to dockerhub') {
             steps {
-                sh 'docker push turaneminli/phonebook-frontend'
+                sh 'docker push turaneminli/phonebook-frontend:latest'
             }
         }
         stage('Update k8s for backend') {
