@@ -3,6 +3,11 @@ pipeline {
         docker { image 'node:16.13.1-alpine' }
     }
     stages {
+        stage('Git clone') {
+            steps {
+                git([url:'git@github.com:turaneminli/phonebook-final.git]', branch: 'master', credentialsId: 'Git'])
+            }
+        }
         stage('Backend build docker') {
             steps {
                 sh 'docker build -t turaneminli/phonebook-backend backend'
