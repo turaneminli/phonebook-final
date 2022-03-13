@@ -1,0 +1,37 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: ui
+  namespace: phonebook-app
+  labels:
+    app: front-app
+    env: demo
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: front-app
+  template:
+    metadata:
+      labels:
+        app: front-app
+        env: demo
+    spec:
+      containers:
+        - name: front-app
+          image: turaneminli/phonebook-frontend:latest
+          ports:
+            - containerPort: 3000
+          env:
+            - name: REACT_APP_API_URL
+              value: http://${BACKEND_SERVICE_HOST}:${BACKEND_SERVICE_PORT}
+          volumeMounts:
+            - name: app-config
+              mountPath: /app/config
+      volumes:
+        - name: app-config
+          configMap:
+            name: app-config
+            items:
+              - key: backend-url
+                path: .env

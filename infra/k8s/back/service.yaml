@@ -1,0 +1,14 @@
+kind: Service
+apiVersion: v1
+metadata:
+  name: backend
+  namespace: phonebook-app
+spec:
+  selector:
+    app: backend-app
+    env: demo
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: http
+  type: LoadBalancer

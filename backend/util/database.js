@@ -5,10 +5,15 @@ const database = process.env.SQL_DATABASE_NAME;
 const username = process.env.SQL_USERNAME;
 const password = process.env.SQL_PASSWORD;
 
-const sequelize = new Sequelize(database, username, password, {
-  host: "127.0.0.1",
-  dialect: "mysql",
-  port: 3306,
-});
+const sequelize = new Sequelize(
+  "phonebookdb",
+  "phonebook_admin",
+  "sqlMy2022Phonebook",
+  {
+    host: "mydb.ch9lxjtadwif.us-east-1.rds.amazonaws.com",
+    dialect: "mysql",
+    port: 3306,
+  }
+);
 
 module.exports = sequelize;
