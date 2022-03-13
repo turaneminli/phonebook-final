@@ -8,7 +8,7 @@ pipeline {
     stages {
         stage('Git clone') {
             steps {
-                git([url:'https://github.com/turaneminli/phonebook-final.git', branch: 'master', credentialsId: 'Git'])
+                git([url:'https://github.com/turaneminli/phonebook-final.git', branch: 'master', credentialsId: 'git'])
             }
         }
         stage('Backend build docker') {
