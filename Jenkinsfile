@@ -12,9 +12,8 @@ pipeline {
         }
         stage('Testing') {
             steps {
-                sh 'cd backend'
-                sh 'npm install'
-                sh 'npm test'
+                sh 'npm install --prefix backend'
+                sh 'npm test --prefix backend'
             }
         }
         stage('Login docker') {
