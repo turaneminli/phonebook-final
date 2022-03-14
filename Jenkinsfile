@@ -3,6 +3,7 @@ pipeline {
     environment {
         DOCKERHUB_CREDENTIALS=credentials('dockerhub')
     }
+    tools {nodejs "nodejs"}
     stages {
         stage('Git clone') {
             steps {
