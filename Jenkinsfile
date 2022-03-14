@@ -9,6 +9,11 @@ pipeline {
                 git([url:'https://github.com/turaneminli/phonebook-final.git', branch: 'master', credentialsId: 'git'])
             }
         }
+        stage('Testing') {
+            steps {
+                sh 'npm test'
+            }
+        }
         stage('Login docker') {
             steps {
                 sh 'echo $DOCKERHUB_CREDENTIALS_PSW | docker login -u $DOCKERHUB_CREDENTIALS_USR --password-stdin'
