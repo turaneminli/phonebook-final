@@ -12,7 +12,7 @@ pipeline {
         }
         stage('Testing') {
             steps {
-                sh 'cd backend'
+                sh 'cd /backend'
                 sh 'npm test'
             }
         }
